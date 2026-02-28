@@ -8,7 +8,7 @@ function usd(n: number) {
 
 const demo = [
   {
-    setName: "Twilight Masquerade",
+    setName: "TWM",
     cardName: "Eevee",
     serial: "188/167",
     tags: ["alt art", "high demand", "modern"],
