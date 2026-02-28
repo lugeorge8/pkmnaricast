@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { InvestorShell } from "@/components/investor-shell";
 import { PurchaseLotsDropdown } from "@/components/purchase-lots";
 import { Pill, SectionTitle } from "@/components/ui";
@@ -11,6 +13,7 @@ const demo = [
     setName: "TWM",
     cardName: "Eevee",
     serial: "188/167",
+    imageSrc: "/cards/twm-eevee-188-167.jpg",
     tags: ["alt art", "high demand", "modern"],
     costBasis: 1240,
     qty: 4,
@@ -82,13 +85,29 @@ export default async function VettedInvestmentsPage() {
             {demo.map((c) => (
               <tr key={`${c.setName}-${c.cardName}-${c.serial}`} className="align-top hover:bg-white/5">
                 <td className="px-4 py-4">
-                  <div className="font-semibold text-zinc-50">
-                    {c.setName} {c.cardName} {c.serial}
-                  </div>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {c.tags.map((t) => (
-                      <Pill key={t}>{t}</Pill>
-                    ))}
+                  <div className="flex items-start gap-3">
+                    <div className="relative h-[56px] w-[44px] overflow-hidden rounded-xl border border-white/10 bg-white/5">
+                      {c.imageSrc ? (
+                        <Image
+                          src={c.imageSrc}
+                          alt={`${c.setName} ${c.cardName} ${c.serial}`}
+                          fill
+                          className="object-cover"
+                          sizes="44px"
+                        />
+                      ) : null}
+                    </div>
+
+                    <div>
+                      <div className="font-semibold text-zinc-50">
+                        {c.setName} {c.cardName} {c.serial}
+                      </div>
+                      <div className="mt-2 flex flex-wrap gap-2">
+                        {c.tags.map((t) => (
+                          <Pill key={t}>{t}</Pill>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </td>
                 <td className="px-4 py-4 font-semibold text-zinc-50">
