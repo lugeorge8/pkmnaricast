@@ -67,7 +67,8 @@ export default async function VettedInvestmentsPage() {
       </div>
 
       <div className="mt-6 overflow-hidden rounded-3xl border border-white/10 bg-black/15">
-        <table className="w-full text-left text-sm">
+        <div className="w-full overflow-x-auto">
+          <table className="min-w-[980px] w-full text-left text-sm">
           <thead className="bg-white/5 text-[11px] font-semibold uppercase tracking-[0.2em] text-zinc-400">
             <tr>
               <th className="px-4 py-3">Investment</th>
@@ -104,6 +105,7 @@ export default async function VettedInvestmentsPage() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
 
       <div className="mt-10 text-xs text-zinc-400">
